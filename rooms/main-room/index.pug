@@ -1,9 +1,8 @@
 html
-  head
-    meta(charset='UTF-8')
-    title Christmas Cung Hỷ
-    link(rel='stylesheet', href='style.css')
+  include ../../components/header/index.pug
+  link(rel='stylesheet', href='style.css')
   body
+    include ../../components/storybox/index.pug
     .wrapper
       ul(class="wall")
         - for (var i=0; i<15; i++)
@@ -41,6 +40,8 @@ html
         .candle(id="candle-2")
           .fire
         .candle(id="candle-3")
+          .fire
+        .candle(id="candle-4")
           .fire
         .sock
           .second

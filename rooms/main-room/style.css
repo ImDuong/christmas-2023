@@ -16,7 +16,7 @@ body {
 }
 .wrapper {
   position: absolute;
-  top: 50%;
+  top: 36%;
   left: 50%;
   transform: translate(-50%, -50%);
   height: 400px;
@@ -191,7 +191,7 @@ ul.embers li {
   width: 5px;
   border-radius: 30px;
   background-color: #ff8706;
-  animation: blink_ember 4s 0s ease-in-out infinite;
+  animation: blink_ember 3s 0s ease-in-out infinite;
 }
 ul.embers li:nth-child(1) {
   top: 0px;
@@ -1168,7 +1168,7 @@ ul.embers li:nth-child(7) {
   height: 30px;
 }
 .fireplace .candle#candle-2 {
-  left: 110px;
+  left: 88px;
   top: -64px;
   width: 50px;
   height: 40px;
@@ -1186,24 +1186,48 @@ ul.embers li:nth-child(7) {
   transform: none;
 }
 .fireplace .candle#candle-3 {
-  left: 340px;
-  top: -104px;
+  left: 329px;
+  top: -73px;
   width: 30px;
-  height: 80px;
+  height: 50px;
 }
 .fireplace .candle#candle-3::before {
   width: 30px;
-  height: 20px;
+  height: 12px;
   bottom: 0px;
   background-color: #dc1e1e;
   transform: none;
 }
 .fireplace .candle#candle-3::after {
   width: 30px;
-  height: 20px;
+  height: 12px;
   top: 0px;
   background-color: #dc1e1e;
   transform: none;
+}
+.fireplace .candle#candle-4 {
+  left: 357px;
+  top: -114px;
+  width: 50px;
+  height: 90px;
+}
+.fireplace .candle#candle-4::before {
+  background-color: #7bb218;
+  position: absolute;
+  bottom: 10px;
+  left: 0px;
+  width: 50px;
+  height: 25px;
+  transform: skew(-11deg) rotate(169deg);
+}
+.fireplace .candle#candle-4::after {
+  background-color: #7bb218;
+  position: absolute;
+  top: 15px;
+  left: 0px;
+  width: 50px;
+  height: 25px;
+  transform: skew(-11deg) rotate(169deg);
 }
 .fireplace .sock {
   transform-origin: top left;
@@ -1226,7 +1250,7 @@ ul.embers li:nth-child(7) {
   width: 70px;
   height: 20px;
   border-radius: 8px;
-  background-color: #f5f5f5;
+  background-color: #dc1e1e;
 }
 .fireplace .sock .second {
   position: absolute;
@@ -1249,7 +1273,7 @@ ul.embers li:nth-child(7) {
   height: 30px;
   border-bottom-right-radius: 30px;
   border-top-left-radius: 20px;
-  background-color: #f5f5f5;
+  background-color: #dc1e1e;
 }
 .fireplace .sock .second::after {
   content: "";
@@ -1260,7 +1284,7 @@ ul.embers li:nth-child(7) {
   width: 70px;
   height: 20px;
   border-radius: 8px;
-  background-color: #f5f5f5;
+  background-color: #dc1e1e;
 }
 .fireplace .sock#sock-2 {
   transform: scale(0.9) rotate(20deg);
@@ -1270,6 +1294,15 @@ ul.embers li:nth-child(7) {
 .fireplace .sock#sock-2 .second {
   background-color: #fea604;
 }
+.fireplace .sock#sock-2 .second::before {
+  background-color: #7bb218;
+}
+.fireplace .sock#sock-2 .second::after {
+  background-color: #7bb218;
+}
+.fireplace .sock#sock-2::after {
+  background-color: #7bb218;
+}
 .fireplace .sock#sock-3 {
   transform: scale(0.8) rotate(20deg);
   left: 320px;
@@ -1278,13 +1311,22 @@ ul.embers li:nth-child(7) {
 .fireplace .sock#sock-3 .second {
   background-color: #dc1e1e;
 }
+.fireplace .sock#sock-3 .second::before {
+  background-color: #fea604;
+}
+.fireplace .sock#sock-3 .second::after {
+  background-color: #fea604;
+}
+.fireplace .sock#sock-3::after {
+  background-color: #fea604;
+}
 .fire {
   position: absolute;
   bottom: 40px;
   left: 50%;
   transform: translateX(-50%) rotate(45deg);
-  width: 45px;
-  height: 45px;
+  width: 69px;
+  height: 69px;
   border-top-left-radius: 0;
   border-top-right-radius: 75px;
   border-bottom-right-radius: 75px;
@@ -1301,8 +1343,8 @@ ul.embers li:nth-child(7) {
   top: 70%;
   left: 70%;
   transform: translate(-50%, -50%);
-  width: 25px;
-  height: 25px;
+  width: 45px;
+  height: 45px;
   border-top-left-radius: 0;
   border-top-right-radius: 75px;
   border-bottom-right-radius: 75px;

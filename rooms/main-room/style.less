@@ -33,7 +33,7 @@ html, body {
 
 .wrapper {
   position: absolute;
-  top: 50%; left: 50%;
+  top: 36%; left: 50%;
   transform: translate(-50%, -50%);
   height: 400px;
 }
@@ -179,7 +179,7 @@ ul.embers {
     height: 5px; width: 5px;
     border-radius: 30px;
     background-color: @color-fire-2;
-    animation: blink_ember 4s 0s ease-in-out infinite;
+    animation: blink_ember 3s 0s ease-in-out infinite;
   }
   /* Line 1 */
   li:nth-child(1) {
@@ -989,7 +989,7 @@ ul.embers {
       width: 30px; height: 30px;
     }
     &#candle-2 {
-      left: 110px; top: -64px;
+      left: 88px; top: -64px;
       width: 50px; height: 40px;
       &::before {
         height: 10px; bottom: 10px;
@@ -1003,17 +1003,35 @@ ul.embers {
       }
     }
     &#candle-3 {
-      left: 340px; top: -104px;
-      width: 30px; height: 80px;
+      left: 329px; top: -73px;
+      width: 30px; height: 50px;
       &::before {
-        width: 30px; height: 20px; bottom: 0px;
+        width: 30px; height: 12px; bottom: 0px;
         background-color: @color-red;
         transform: none;
       }
       &::after {
-        width: 30px; height: 20px; top: 0px;
+        width: 30px; height: 12px; top: 0px;
         background-color: @color-red;
         transform: none;
+      }
+    }
+    &#candle-4 {
+      left: 357px; top: -114px;
+      width: 50px; height: 90px;
+      &::before {
+        background-color: @color-green;
+        position: absolute;
+        bottom: 10px; left: 0px;
+        width: 50px; height: 25px;
+        transform: skew(-11deg) rotate(169deg);
+      }
+      &::after {
+        background-color: @color-green;
+        position: absolute;
+        top: 15px; left: 0px;
+        width: 50px; height: 25px;
+        transform: skew(-11deg) rotate(169deg);
       }
     }
   }
@@ -1033,7 +1051,7 @@ ul.embers {
       transform: translatex(-50%);
       width: 70px; height: 20px;
       border-radius: 8px;
-      background-color: #f5f5f5;
+      background-color: @color-red;
     }
     .second {
       position: absolute;
@@ -1051,7 +1069,7 @@ ul.embers {
         width: 30px; height: 30px;
         border-bottom-right-radius: 30px;
         border-top-left-radius: 20px;
-        background-color: #f5f5f5;
+        background-color: @color-red;
       }
       &::after {
         content: "";
@@ -1060,7 +1078,7 @@ ul.embers {
         transform: translatex(-50%);
         width: 70px; height: 20px;
         border-radius: 8px;
-        background-color: #f5f5f5;
+        background-color: @color-red;
       }
     }
     &#sock-2 {
@@ -1069,6 +1087,15 @@ ul.embers {
       background-color: @color-orange;
       .second {
         background-color: @color-orange;
+        &::before {
+          background-color: @color-green;
+        }
+        &::after {
+          background-color: @color-green;
+        }
+      }
+      &::after {
+        background-color: @color-green;
       }
     }
     &#sock-3 {
@@ -1077,6 +1104,15 @@ ul.embers {
       background-color: @color-red;
       .second {
         background-color: @color-red;
+        &::before {
+          background-color: @color-orange;
+        }
+        &::after {
+          background-color: @color-orange;
+        }
+      }
+      &::after {
+        background-color: @color-orange;
       }
     }
   }
@@ -1086,7 +1122,7 @@ ul.embers {
   position: absolute;
   bottom: 40px; left: 50%;
   transform: translateX(-50%) rotate(45deg);
-  width: 45px; height: 45px;
+  width: 69px; height: 69px;
   border-top-left-radius: 0;
   border-top-right-radius: 75px;
   border-bottom-right-radius: 75px;
@@ -1101,7 +1137,7 @@ ul.embers {
     position: absolute;
     top: 70%; left: 70%;
     transform: translate(-50%, -50%);
-    width: 25px; height: 25px;
+    width: 45px; height: 45px;
     border-top-left-radius: 0;
     border-top-right-radius: 75px;
     border-bottom-right-radius: 75px;

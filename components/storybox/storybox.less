@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+  font-family: "Pacifico", cursive;
+}
+
+.text-box {
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid #c62828;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border: 10px solid transparent;
+    border-top-color: #c62828;
+  }
+
+  .text-content {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+
+    &::after {
+      content: "🎄";
+      font-size: 24px;
+      display: block;
+      margin-top: 10px;
+      text-align: center;
+    }
+  }
+}
