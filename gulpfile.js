@@ -59,6 +59,6 @@ gulp.task("watch", function () {
   gulp.watch(pugPattern, gulp.series("compile-pug"));
 });
 
-gulp.task("default", gulp.series("compile-less", "compile-pug"));
+gulp.task("default", gulp.parallel("compile-less", "compile-pug"));
 
-gulp.task("dev", gulp.series("compile-less", "compile-pug", "watch"));
+gulp.task("dev", gulp.series("default", "watch"));

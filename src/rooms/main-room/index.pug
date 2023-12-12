@@ -1,8 +1,8 @@
 html
-  include ../../components/header/index.pug
+  include @@webRoot/components/header/index.pug
   link(rel='stylesheet', href='style.css')
   body
-    include ../../components/storybox/index.pug
+    include @@webRoot/components/storybox/index.pug
     .wrapper
       ul(class="wall")
         - for (var i=0; i<15; i++)
