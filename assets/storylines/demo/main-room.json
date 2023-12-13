@@ -3,6 +3,7 @@
         "text": "Welcome to Xmas Dimension. Only worthy ones can open the heart of the Santa."
     },
     {
-        "text": "Ho ho ho! 🎅🎁"
+        "text": "Ho ho ho! 🎅🎁",
+        "loop": true
     }
 ]

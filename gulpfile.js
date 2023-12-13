@@ -61,6 +61,12 @@ gulp.task("compile-pug", function () {
 gulp.task('copy-js', function () {
   return gulp
     .src(jsPattern)
+    .pipe(
+      fileInclude({
+        prefix: "@@",
+        basepath: "@file",
+      })
+    )
     .pipe(gulp.dest(buildFolder));
 });
 
