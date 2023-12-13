@@ -13,9 +13,8 @@
     "gulp-less": "^5.0.0",
     "gulp-pug": "^5.0.0",
     "gulp-rename": "^2.0.0",
+    "gulp-webserver": "^0.9.1",
     "less": "^4.2.0"
   },
-  "devDependencies": {
-    "pug-cli": "^1.0.0-alpha6"
-  }
+  "devDependencies": {}
 }

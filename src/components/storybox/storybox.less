@@ -4,7 +4,7 @@ body {
   font-family: "Pacifico", cursive;
 }
 
-.text-box {
+.story-box {
   width: 70%;
   margin: 0 auto;
   padding: 20px;
@@ -13,9 +13,10 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: fixed;
-  bottom: 15%;
+  bottom: 13%;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 99;
 
   &:before {
     content: "";
@@ -27,7 +28,7 @@ body {
     border-top-color: #c62828;
   }
 
-  .text-content {
+  .story-content {
     font-size: 18px;
     line-height: 1.6;
     color: #333;
