@@ -1,6 +1,7 @@
 html
-  include @@webRoot/components/header/index.pug
+  script(defer, src="index.js")
   link(rel='stylesheet', href='style.css')
+  include @@webRoot/components/header/index.pug
   body
     include @@webRoot/components/storybox/index.pug
     .wrapper

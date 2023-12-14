@@ -4,7 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
   var curStoryIdx = 0;
   var storyLines = [];
 
-  fetch("@@webRoot/../assets/storylines/demo/main-room.json")
+  if (storyPath == null || storyPath.length == 0) {
+    storyPath = "demo/404-room.json"
+  }
+
+  fetch(`@@webRoot/../assets/storylines/${storyPath}`)
     .then((response) => response.json())
     .then((data) => {
       storyLines = data;
