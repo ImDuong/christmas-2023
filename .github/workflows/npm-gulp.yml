@@ -26,6 +26,8 @@ jobs:
       run: |
         npm install
         npm run build
+        ls -la ./build
+        ls -la ./build/rooms
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3.9.3
