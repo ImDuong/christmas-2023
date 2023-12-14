@@ -1,0 +1,52 @@
+html
+  script(defer, src="index.js")
+  link(rel='stylesheet', href='style.css')
+  include @@webRoot/components/header/index.pug
+  body
+    include @@webRoot/components/storybox/index.pug
+    .wrapper
+      ul(class="wall")
+        - for (var i=0; i<15; i++)
+          li
+      .crown
+        ul(class="round")
+          - for (var i=0; i<17; i++)
+            li
+        ul(class="ball")
+          - for (var i=0; i<12; i++)
+            li
+      .fireplace
+        .bottom
+          ul(class="ground")
+            - for (var i=0; i<10; i++)
+              li
+        ul(class="top")
+          - for (var i=0; i<10; i++)
+            li
+        ul(class="bricks")
+          - for (var i=0; i<15; i++)
+            li
+        .chimney
+        .chimney-shadow
+        .chimney-fire-wrapper
+          ul(class="wood")
+            - for (var i=0; i<9; i++)
+              li
+          .fire
+          ul(class="embers")
+            - for (var i=0; i<7; i++)
+              li
+        .candle
+          .fire
+        .candle(id="candle-2")
+          .fire
+        .candle(id="candle-3")
+          .fire
+        .candle(id="candle-4")
+          .fire
+        .sock
+          .second
+        .sock(id="sock-2")
+          .second
+        .sock(id="sock-3")
+          .second
