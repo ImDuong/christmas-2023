@@ -25,9 +25,13 @@ jobs:
     - name: Build
       run: |
         npm install
+
+        # generate `dist` folder with RUN_MODE=production
         npm run build
-        ls -la ./build
-        ls -la ./build/rooms
+
+        mkdir build
+        cp -r dist build
+        cp -r assets build
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3.9.3
