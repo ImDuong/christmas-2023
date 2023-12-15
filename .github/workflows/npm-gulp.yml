@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
 
 env:
-  RUN_MODE: ${{ vars.RUN_MODE }}
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}
 
 jobs:
   build:
@@ -27,8 +27,6 @@ jobs:
 
     - name: Build
       run: |
-        echo Helloworld
-        echo "$GITHUB_ENV"
         echo this is my run env
         echo "$RUN_MODE"
         echo this is the end
@@ -40,6 +38,8 @@ jobs:
         mkdir build
         cp -r dist build
         cp -r assets build
+      env:
+        RUN_MODE: ${{ vars.RUN_MODE }}
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3.9.3
