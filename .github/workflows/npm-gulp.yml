@@ -26,10 +26,9 @@ jobs:
       run: |
         npm install
 
+        export RUN_MODE=production
         # generate `dist` folder with RUN_MODE=production
         npm run build
-
-        printenv RUN_MODE
 
         mkdir build
         cp -r dist build
