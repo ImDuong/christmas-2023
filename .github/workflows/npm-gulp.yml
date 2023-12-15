@@ -28,7 +28,10 @@ jobs:
     - name: Build
       run: |
         echo Helloworld
-        cat $GITHUB_ENV
+        echo "$GITHUB_ENV"
+        echo this is my run env
+        echo "$RUN_MODE"
+        echo this is the end
         npm install
 
         # generate `dist` folder with RUN_MODE=production
