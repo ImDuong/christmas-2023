@@ -18,16 +18,15 @@ if %errorlevel% equ 0 (
     echo Yarn %YARN_VERSION% is installed
 
     echo Installing dependencies using yarn...
-    yarn install
+    yarn
 ) else (
     where npm >nul 2>nul
     if %errorlevel% equ 0 (
         for /f "tokens=* delims=" %%v in ('npm -v') do set NPM_VERSION=%%v
         echo NPM %NPM_VERSION% is installed
+        echo Installing dependencies using npm...
+        npm install
     )
-
-    echo Installing dependencies using npm...
-    npm install
 )
 if %errorlevel% neq 0 (
     echo Warning: Both Yarn and NPM are not installed. Please install Yarn ^(https://yarnpkg.com/^) or NPM ^(https://nodejs.org/^)

@@ -1,11 +1,22 @@
 # Prerequisites
+- Requirements: 
+    - Node.js
+    - NPM/Yarn
 - Use scripts inside `scripts/install` folder for quick start
     ```
-    scripts/install/install-mac.sh
+    chmod +x ./scripts/install/install-mac.sh && ./scripts/install/install-mac.sh
     ```
     or 
     ```
     scripts\install\install-windows.cmd
+    ```
+- Or just install dependencies listed in package.json with
+    ```
+    yarn
+    ```
+    or 
+    ```
+    npm i
     ```
 
 # How to Run
