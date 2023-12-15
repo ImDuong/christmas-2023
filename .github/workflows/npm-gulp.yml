@@ -29,6 +29,8 @@ jobs:
         # generate `dist` folder with RUN_MODE=production
         npm run build
 
+        printenv RUN_MODE
+
         mkdir build
         cp -r dist build
         cp -r assets build
