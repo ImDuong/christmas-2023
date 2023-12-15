@@ -25,11 +25,11 @@ jobs:
     - name: Build
       run: |
         echo this is my run env
-        echo "$RUN_MODE" > "run.txt"
+        echo "${{env.RUN_MODE}}" > "run.txt"
         cat run.txt
         echo this is the end
         echo I do something here
-        echo RUN_MODE=$RUN_MODE >> .env
+        echo RUN_MODE=${{env.RUN_MODE}} >> .env
         cat .env
         echo end something
         npm install
