@@ -22,9 +22,6 @@ jobs:
 
     - name: Build
       run: |
-        echo RUN_MODE=$RUN_MODE >> .env
-        cat .env
-
         yarn
 
         # generate `dist` folder with RUN_MODE=production
@@ -33,6 +30,7 @@ jobs:
         mkdir build
         cp -r dist build
         cp -r assets build
+        cp index.html build
       env:
         RUN_MODE: ${{ vars.RUN_MODE }}
         
