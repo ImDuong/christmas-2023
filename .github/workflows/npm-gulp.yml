@@ -30,6 +30,7 @@ jobs:
         echo this is the end
         echo I do something here
         echo RUN_MODE=$RUN_MODE >> .env
+        cat .env
         echo end something
         npm install
 
