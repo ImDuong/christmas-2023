@@ -23,6 +23,7 @@ if (runMode == "production") {
 }
 const buildFolderFullPath = path.join(process.cwd(), buildFolder)
 const assetsFolderFullPath = path.join(process.cwd(), "assets")
+const redirectedRoomPath = path.join(buildFolder, "rooms/main-room/index.html")
 
 const pugPattern = "./src/**/*.pug";
 const cleanupPugPattern = `./${buildFolder}/**/*.pug`;
@@ -37,7 +38,15 @@ gulp.task("compile-less", function () {
     .pipe(gulp.dest(buildFolder));
 });
 
-gulp.task("compile-pug", function () {
+gulp.task("compile-index-pug", function() {
+  return gulp.src('index.pug')
+  .pipe(pug({
+    locals: { redirectedRoom: redirectedRoomPath }
+  }))
+  .pipe(gulp.dest('.'));
+});
+
+gulp.task("compile-src-pug", function () {
   return gulp
     .src(pugPattern)
     // inject root path for css, js, pug linkings
@@ -57,6 +66,9 @@ gulp.task("compile-pug", function () {
       deleteSync([cleanupPugPattern]);
     });
 });
+
+gulp.task("compile-pug", gulp.parallel("compile-index-pug", "compile-src-pug"));
+
 
 gulp.task('copy-js', function () {
   return gulp
@@ -93,7 +105,7 @@ gulp.task('serve', function() {
         }
       },
       directoryListing: true,
-      open: `${buildFolder}/rooms/main-room/index.html`
+      open: `index.html`
     }));
   console.log(`Enable live-reload for ${buildFolderFullPath} and ${assetsFolderFullPath}`);
 });

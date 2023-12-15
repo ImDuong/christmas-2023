@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title Merry Christmas!
+    style
+      | body {
+      |     background-color: #1c1c1c;
+      |     color: #ffffff;
+      |     font-family: 'Arial', sans-serif;
+      |     text-align: center;
+      |     padding: 50px;
+      | }
+      | h1 {
+      |     color: #e44d26;
+      | }
+      | p {
+      |     font-size: 18px;
+      | }
+      | a {
+      |     color: #e44d26;
+      |     text-decoration: none;
+      | }
+      | a:hover {
+      |     text-decoration: underline;
+      | }
+  body
+    h1 Merry Christmas! Automatically ride to the special house
+    p If you are not automatically redirected,
+      a(href=redirectedRoom) click here.
+    img(src="./assets/imgs/christmas-tree.jpg", alt="Christmas Image", width="400")
+    script.
+      setTimeout(function() {
+          window.location.href = "#{redirectedRoom}";
+      }, 2000);
