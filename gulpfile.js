@@ -10,9 +10,6 @@ import {deleteSync} from "del";
 import webserver from "gulp-webserver";
 import path from "path";
 
-// load default env variables
-dotenv.config({ path: ".env" });
-
 const runMode = process.env.RUN_MODE || "local";
 const modeSpecificEnvFile = `.env.${runMode}`;
 
