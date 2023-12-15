@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-env:
-  env_var: ${{ vars.ENV_CONTEXT_VAR }}
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -28,8 +25,12 @@ jobs:
     - name: Build
       run: |
         echo this is my run env
-        echo "$RUN_MODE"
+        echo "$RUN_MODE" > "run.txt"
+        cat run.txt
         echo this is the end
+        echo I do something here
+        echo RUN_MODE=$RUN_MODE >> .env
+        echo end something
         npm install
 
         # generate `dist` folder with RUN_MODE=production
