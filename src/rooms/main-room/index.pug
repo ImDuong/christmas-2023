@@ -3,6 +3,8 @@ html
   link(rel='stylesheet', type="text/css", href='style.css')
   include @@webRoot/components/header/index.pug
   body
+    include @@webRoot/components/door/left-door.pug
+    include @@webRoot/components/door/right-door.pug
     include @@webRoot/components/storybox/index.pug
     .wrapper
       ul(class="wall")
