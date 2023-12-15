@@ -1,4 +1,4 @@
-name: NodeJS with Gulp
+name: Xmas-2023
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    environment: staging
     strategy:
       matrix:
         node-version: [18.x]
@@ -24,8 +24,24 @@ jobs:
 
     - name: Build
       run: |
+        echo this is my run env
+        echo $RUN_MODE > "run.txt"
+        cat run.txt
+        echo this is the end
+        echo I do something here
+        echo RUN_MODE=$RUN_MODE >> .env
+        cat .env
+        echo end something
         npm install
+
+        # generate `dist` folder with RUN_MODE=production
         npm run build
+
+        mkdir build
+        cp -r dist build
+        cp -r assets build
+      env:
+        RUN_MODE: ${{ vars.RUN_MODE }}
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3.9.3

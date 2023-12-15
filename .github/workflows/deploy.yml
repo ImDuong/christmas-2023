@@ -1,0 +1,43 @@
+name: Xmas-2023-deploy
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: github-pages
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Build
+      run: |
+        echo RUN_MODE=$RUN_MODE >> .env
+        cat .env
+
+        yarn
+
+        # generate `dist` folder with RUN_MODE=production
+        yarn run build
+
+        mkdir build
+        cp -r dist build
+        cp -r assets build
+      env:
+        RUN_MODE: ${{ vars.RUN_MODE }}
+        
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3.9.3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
