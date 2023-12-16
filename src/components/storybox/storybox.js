@@ -1,13 +1,15 @@
-var storyBox = document.createElement('div');
+var storyBoxOverlay = document.createElement("div");
+var storyBox = document.createElement("div");
 var storyText;
 var curStoryIdx = 0;
 
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", function () {
+  storyBoxOverlay = document.getElementById("story-box-overlay");
   storyBox = document.getElementById("story-box");
   storyText = document.getElementById("story-content");
 });
 
-async function readStoryLines(storyPath) {
+async function fetchStoryLines(storyPath) {
   if (storyPath == null || storyPath.length == 0) {
     storyPath = "demo/404-room.json";
   }
@@ -23,18 +25,18 @@ async function readStoryLines(storyPath) {
   }
 }
 
-function loadStoryLines(storyLines) {
+function viewStoryLines(storyLines) {
   // read from start
-  curStoryIdx = 0
+  curStoryIdx = 0;
 
-  function loadNextStoryLine() {
+  function viewNextStoryLine() {
     if (storyLines.length == 0 || curStoryIdx < 0) {
-      storyBox.removeEventListener("click", loadNextStoryLine);
+      storyBoxOverlay.removeEventListener("click", viewNextStoryLine);
       return;
     }
     if (curStoryIdx < storyLines.length) {
-      readAStoryLine()
-      return
+      readStoryByOneLine();
+      return;
     }
 
     // if the last story line has enabled "loop" = true, the story box will never disappear
@@ -43,11 +45,11 @@ function loadStoryLines(storyLines) {
       curStoryIdx--;
     } else {
       hideStoryBox();
-      storyBox.removeEventListener("click", loadNextStoryLine);
+      storyBoxOverlay.removeEventListener("click", viewNextStoryLine);
     }
   }
 
-  function readAStoryLine() {
+  function readStoryByOneLine() {
     if (curStoryIdx >= storyLines.length) {
       return;
     }
@@ -55,28 +57,35 @@ function loadStoryLines(storyLines) {
     curStoryIdx++;
   }
 
-  setTimeout(() => {
-    readAStoryLine()
-    showStoryBox();
+  readStoryByOneLine();
+  storyBoxOverlay.addEventListener("click", viewNextStoryLine);
 
-    storyBox.addEventListener("click", loadNextStoryLine);
-  }, 2000);
+  showStoryBox();
 }
 
 function isStoryLineEnd(storyLines) {
-  return curStoryIdx >= storyLines.length
+  return curStoryIdx >= storyLines.length;
 }
 
 function showStoryBox() {
   if (storyBox == null) {
-    return
+    return;
   }
   storyBox.style.visibility = "visible";
+  if (storyBoxOverlay == null) {
+    return;
+  }
+  storyBoxOverlay.style.visibility = "visible";
 }
 
 function hideStoryBox() {
   if (storyBox == null) {
-    return
+    return;
   }
   storyBox.style.visibility = "hidden";
+
+  if (storyBoxOverlay == null) {
+    return;
+  }
+  storyBoxOverlay.style.visibility = "hidden";
 }
