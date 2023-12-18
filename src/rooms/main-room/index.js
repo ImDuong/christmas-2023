@@ -1,13 +1,7 @@
 // set path to intial story lines for storybox
 const intialStoryPath = "demo/main-room.json";
-
 const leftRoomStoryPath = "navigation/main-room-left-door.json";
-var leftRoomClickCnt = 0;
-var leftRoomStoryLines = [];
-
 const rightRoomStoryPath = "navigation/main-room-right-door.json";
-var rightRoomClickCnt = 0;
-var rightRoomStoryLines = [];
 
 document.addEventListener("DOMContentLoaded", async function () {
   var intialStoryLines = await fetchStoryLines(intialStoryPath);
@@ -15,51 +9,29 @@ document.addEventListener("DOMContentLoaded", async function () {
     viewStoryLines(intialStoryLines);
   }, 2000);
 
-  // keep asynchronously fetching story lines for left room & right door
-  fetchStoryLines(leftRoomStoryPath)
-    .then((storyLines) => {
-      leftRoomStoryLines = storyLines;
-    })
-    .catch((e) => {
-      console.error("Fetch story lines for left room failed: ", e);
-    });
-
-  fetchStoryLines(rightRoomStoryPath)
-    .then((storyLines) => {
-      rightRoomStoryLines = storyLines;
-    })
-    .catch((e) => {
-      console.error("Fetch story lines for right room failed: ", e);
-    });
-
-  var leftDoorWrapper = document.getElementById("left-door-wrapper");
-  var rightDoorWrapper = document.getElementById("right-door-wrapper");
-
-  leftDoorWrapper.addEventListener("click", function () {
-    if (leftRoomClickCnt == 0) {
-      viewStoryLines(leftRoomStoryLines);
-      leftRoomClickCnt++;
-      return;
-    }
-    if (!isStoryLineEnd(leftRoomStoryLines)) {
-      leftRoomClickCnt++;
-      return;
-    }
-
-    window.location.href = "../room-happiness/index.html";
-  });
-
-  rightDoorWrapper.addEventListener("click", function () {
-    if (rightRoomClickCnt == 0) {
-      viewStoryLines(rightRoomStoryLines);
-      rightRoomClickCnt++;
-      return;
-    }
-    if (!isStoryLineEnd(rightRoomStoryLines)) {
-      rightRoomClickCnt++;
-      return;
-    }
-
-    window.location.href = "../room-suffering/index.html";
-  });
+  loadNextRoom(leftRoomStoryPath, 'left-door-wrapper', "../room-happiness/index.html")
+  loadNextRoom(rightRoomStoryPath, 'right-door-wrapper', "../room-suffering/index.html")
 });
+
+function loadNextRoom(storyPath, doorWrapperDOMElementID, roomURI) {
+  var storyLines = []
+  var isRoomEnterable = false
+  fetchStoryLines(storyPath)
+    .then((fetchedSl) => {
+      storyLines = fetchedSl;
+    })
+    .catch((e) => {
+      console.error(`Fetch story lines from ${storyPath} failed:`, e);
+    });
+
+  var doorWrapper = document.getElementById(doorWrapperDOMElementID);
+  doorWrapper.addEventListener("click", function () {
+    if (!isRoomEnterable) {
+      viewStoryLines(storyLines);
+      isRoomEnterable = true;
+      return;
+    }
+
+    window.location.href = roomURI;
+  });
+}

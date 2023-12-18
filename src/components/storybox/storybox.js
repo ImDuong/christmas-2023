@@ -1,7 +1,6 @@
 var storyBoxOverlay = document.createElement("div");
 var storyBox = document.createElement("div");
 var storyText;
-var curStoryIdx = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
   storyBoxOverlay = document.getElementById("story-box-overlay");
@@ -25,10 +24,7 @@ async function fetchStoryLines(storyPath) {
   }
 }
 
-function viewStoryLines(storyLines) {
-  // read from start
-  curStoryIdx = 0;
-
+function viewStoryLines(storyLines, curStoryIdx = 0) {
   function viewNextStoryLine() {
     if (storyLines.length == 0 || curStoryIdx < 0) {
       storyBoxOverlay.removeEventListener("click", viewNextStoryLine);
@@ -39,14 +35,8 @@ function viewStoryLines(storyLines) {
       return;
     }
 
-    // if the last story line has enabled "loop" = true, the story box will never disappear
-    const curStoryLine = storyLines[curStoryIdx - 1];
-    if ("loop" in curStoryLine && curStoryLine["loop"] === true) {
-      curStoryIdx--;
-    } else {
-      hideStoryBox();
-      storyBoxOverlay.removeEventListener("click", viewNextStoryLine);
-    }
+    hideStoryBox();
+    storyBoxOverlay.removeEventListener("click", viewNextStoryLine);
   }
 
   function readStoryByOneLine() {
@@ -61,10 +51,6 @@ function viewStoryLines(storyLines) {
   storyBoxOverlay.addEventListener("click", viewNextStoryLine);
 
   showStoryBox();
-}
-
-function isStoryLineEnd(storyLines) {
-  return curStoryIdx >= storyLines.length;
 }
 
 function showStoryBox() {
