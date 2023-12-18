@@ -1,9 +1,11 @@
 html
-  script(defer, src="index.js")
   link(rel='stylesheet', type="text/css", href='style.css')
   include @@webRoot/components/header/index.pug
   body
+    include @@webRoot/components/door/left-door.pug
+    include @@webRoot/components/door/right-door.pug
     include @@webRoot/components/storybox/index.pug
+    script(defer, src="index.js")
     .wrapper
       ul(class="wall")
         - for (var i=0; i<15; i++)
@@ -49,4 +51,4 @@ html
         .sock(id="sock-2")
           .second
         .sock(id="sock-3")
-          .second
+          .second    

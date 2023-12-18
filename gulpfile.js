@@ -23,7 +23,9 @@ if (runMode == "production") {
 }
 const buildFolderFullPath = path.join(process.cwd(), buildFolder)
 const assetsFolderFullPath = path.join(process.cwd(), "assets")
-const redirectedRoomPath = path.join(buildFolder, "rooms/main-room/index.html")
+let redirectedRoomPath = path.join(buildFolder, "rooms/main-room/index.html")
+// support Windows path
+redirectedRoomPath = redirectedRoomPath.replaceAll("\\", "\\\\")
 
 const pugPattern = "./src/**/*.pug";
 const cleanupPugPattern = `./${buildFolder}/**/*.pug`;
