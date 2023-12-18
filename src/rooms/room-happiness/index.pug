@@ -1,1 +1,7 @@
-p Welcome to room of happiness
+html
+  link(rel='stylesheet', type="text/css", href='style.css')
+  include @@webRoot/components/header/index.pug
+  body
+    include @@webRoot/components/door/right-door.pug
+    include @@webRoot/components/storybox/index.pug
+    script(defer, type="module",src="index.js")

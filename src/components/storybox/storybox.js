@@ -1,7 +1,6 @@
 var storyBoxOverlay = document.createElement("div");
 var storyBox = document.createElement("div");
 var storyText;
-var curStoryIdx = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
   storyBoxOverlay = document.getElementById("story-box-overlay");
@@ -9,6 +8,20 @@ document.addEventListener("DOMContentLoaded", function () {
   storyText = document.getElementById("story-content");
 });
 
+/**
+ * @description Fetches storylines from a specified path.
+ *
+ * @param {string} storyPath - The relative path (from the assets/storylines folder) to the JSON file containing the storylines.
+ *                             If null or an empty string, a default path ("demo/404-room.json") is used.
+ * @returns {Promise<Array<Object>>} A promise that resolves to an array of storyline objects.
+ *                                   Object will look like {"text": "hello world"}
+ *
+ * @example
+ * // Example usage:
+ * // Assuming assets/storylines/demo/main-room.json exists and contains an array of storylines.
+ * const storyPath = 'demo/main-room.json';
+ * const storylines = await fetchStoryLines(storyPath);
+ */
 async function fetchStoryLines(storyPath) {
   if (storyPath == null || storyPath.length == 0) {
     storyPath = "demo/404-room.json";
@@ -25,9 +38,24 @@ async function fetchStoryLines(storyPath) {
   }
 }
 
-function viewStoryLines(storyLines) {
-  // read from start
-  curStoryIdx = 0;
+/**
+ * @description Displays storylines in a box, allowing the player to read each line by clicking.
+ *
+ * @param {Array<Object>} storyLines - An array of storyline objects to be displayed.
+ * @param {number} [curStoryIdx=0] - The starting index for displaying storylines. Defaults to 0.
+ * 
+ * @example
+ * // Example usage:
+ * const storyLines = [
+ *   { "text": "Hi there, Im Duong from the past" },
+ *   { "text": "Saying Hello to the future me" },
+ * ];
+ * viewStoryLines(storyLines);
+ */
+function viewStoryLines(storyLines, curStoryIdx = 0) {
+  if (storyLines.length == 0) {
+    return;
+  }
 
   function viewNextStoryLine() {
     if (storyLines.length == 0 || curStoryIdx < 0) {
@@ -39,14 +67,8 @@ function viewStoryLines(storyLines) {
       return;
     }
 
-    // if the last story line has enabled "loop" = true, the story box will never disappear
-    const curStoryLine = storyLines[curStoryIdx - 1];
-    if ("loop" in curStoryLine && curStoryLine["loop"] === true) {
-      curStoryIdx--;
-    } else {
-      hideStoryBox();
-      storyBoxOverlay.removeEventListener("click", viewNextStoryLine);
-    }
+    hideStoryBox();
+    storyBoxOverlay.removeEventListener("click", viewNextStoryLine);
   }
 
   function readStoryByOneLine() {
@@ -61,10 +83,6 @@ function viewStoryLines(storyLines) {
   storyBoxOverlay.addEventListener("click", viewNextStoryLine);
 
   showStoryBox();
-}
-
-function isStoryLineEnd(storyLines) {
-  return curStoryIdx >= storyLines.length;
 }
 
 function showStoryBox() {
