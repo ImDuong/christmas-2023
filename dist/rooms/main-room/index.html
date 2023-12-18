@@ -1,5 +1,4 @@
 <html>
-<script defer="defer" src="index.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css" />
 
 <head>
@@ -11,17 +10,53 @@
     <html>
 
     <head>
+        <link rel="stylesheet" type="text/css" href="../../components/door/door.css" />
+    </head>
+
+    <body>
+        <div class="door-wrapper" id="left-door-wrapper">
+            <div class="door" id="left-door">
+                <div class="door-shape"></div>
+                <div class="door-shape"></div>
+                <div class="knob" id="left-knob"></div>
+            </div>
+        </div>
+    </body>
+
+    </html>
+    <html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="../../components/door/door.css" />
+    </head>
+
+    <body>
+        <div class="door-wrapper" id="right-door-wrapper">
+            <div class="door" id="right-door">
+                <div class="door-shape"></div>
+                <div class="door-shape"></div>
+                <div class="knob" id="right-knob"></div>
+            </div>
+        </div>
+    </body>
+
+    </html>
+    <html>
+
+    <head>
         <link rel="stylesheet" type="text/css" href="../../components/storybox/storybox.css" />
         <script defer="defer" src="../../components/storybox/storybox.js"></script>
     </head>
 
     <body>
+        <div id="story-box-overlay"></div>
         <div id="story-box">
             <div id="story-content">Welcome to Xmas Dimension. Only worthy ones can open the heart of the Santa.</div>
         </div>
     </body>
 
     </html>
+    <script defer="defer" src="index.js"></script>
     <div class="wrapper">
         <ul class="wall">
             <li></li>
@@ -163,7 +198,7 @@
                 <div class="second"></div>
             </div>
             <div class="sock" id="sock-3">
-                <div class="second"></div>
+                <div class="second"> </div>
             </div>
         </div>
     </div>

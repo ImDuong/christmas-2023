@@ -1,0 +1,66 @@
+.door-wrapper {
+  height: 300px;
+  width: 250px;
+  position: absolute;
+  /* 3D */
+  perspective: 1000px;
+}
+.door-wrapper#left-door-wrapper {
+  transform: skew(0deg, -40deg);
+  left: 15%;
+  top: 30%;
+}
+.door-wrapper#right-door-wrapper {
+  transform: skew(0deg, 40deg);
+  right: 15%;
+  top: 30%;
+}
+.door {
+  background-color: #61412d;
+  height: 100%;
+  width: 50%;
+  position: absolute;
+  /* inner layout */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  top: 0;
+  border-right: 1px solid black;
+  transition: transform 0.5s;
+}
+.door#left-door {
+  left: 0;
+  /* transition */
+  transform-origin: left;
+}
+.door#right-door {
+  right: 0;
+  /* transition */
+  transform-origin: right;
+}
+.door-shape {
+  border: 4px solid black;
+  width: 100px;
+  height: 130px;
+}
+.knob {
+  width: 10px;
+  height: 50px;
+  background-color: #d7dade;
+  position: absolute;
+  top: 50%;
+}
+.knob#left-knob {
+  right: 10px;
+}
+.knob#right-knob {
+  left: 10px;
+}
+/* Door swing effect */
+.door-wrapper:hover #left-door {
+  transform: rotateY(-140deg);
+}
+.door-wrapper:hover #right-door {
+  transform: rotateY(140deg);
+}
