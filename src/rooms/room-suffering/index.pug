@@ -2,9 +2,11 @@
 html
   link(rel='stylesheet', type="text/css", href='style.css')
   include @@webRoot/components/header/index.pug
+  
   body
-    include @@webRoot/components/door/left-door.pug
     audio(autoplay loop)
         source(src='@@webRoot/../assets/sounds/horror_sound.mp3', type='audio/mpeg')
+    include @@webRoot/components/door/left-door.pug
     include @@webRoot/components/storybox/index.pug
+    //- include @@webRoot/components/mail/mail.pug
     script(defer, type="module",src="index.js")
