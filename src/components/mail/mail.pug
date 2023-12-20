@@ -1,13 +1,14 @@
 html
   head
     link(rel="stylesheet", type="text/css", href="@@webRoot/components/mail/mail.css")
-    script(defer, type="module", src="@@webRoot/components/mail/mail.js")
+    script(defer, src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js")
+    script(defer, src="@@webRoot/components/mail/mail.js")
 
   body
     .letter-image(id='letter-wrapper')
-      .animated-mail
+      .animated-mail(id='mail')
         .back-fold
-        .letter
+        .letter(id='letter-item')
           .letter-border
           .letter-title
             p I want to play a game with you 😈

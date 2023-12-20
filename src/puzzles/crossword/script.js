@@ -1,7 +1,9 @@
 // Global variable to store the data
 var data;
 const dataPath = '@@webRoot/../assets/puzzle_configs/crossword_data.json';
-fetch(dataPath)
+
+document.addEventListener("DOMContentLoaded", async function () {
+    fetch(dataPath)
     .then(response => response.json())
     .then(jsonData => {
         // Store the data in the global variable
@@ -14,6 +16,7 @@ fetch(dataPath)
         initializeScreen();
     })
     .catch(error => console.error('Error:', error));
+});
 
 
 //Globals
@@ -29,8 +32,8 @@ function initializeScreen(){
         for(var j = 0 ; j < rowData.length ; j++){
             var cell = row.insertCell(-1);
             if(rowData[j] != 0){
-                var txtID = String('txt' + '_' + i + '_' + j);
-                cell.innerHTML = '<input type="text" class="inputBox" maxlength="1" style="text-transform: lowercase" ' + 'id="' + txtID + '" onfocus="textInputFocus(' + "'" + txtID + "'"+ ')">';
+                var txtID = String(`txt_${i}_${j}`);
+                cell.innerHTML = `<input type="text" class="inputBox" maxlength="1" style="text-transform: lowercase" id="${txtID}" onfocus="textInputFocus('${txtID}')">`;
             }else{
                 cell.style.backgroundColor  = "black";
             }
