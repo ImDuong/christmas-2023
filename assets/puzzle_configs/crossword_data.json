@@ -1,0 +1,42 @@
+{
+    "across": {
+        "1": {
+            "clue": "What make our relationship great.",
+            "answer": "HARMONY",
+            "row": 1,
+            "col": 2
+        },
+        "2": {
+            "clue": "",
+            "answer": "CHARMED",
+            "row": 2,
+            "col": 2
+        },
+        "3": {
+            "clue": "A type of vegetable you hate.",
+            "answer": "SPROUTS",
+            "row": 3,
+            "col": 3
+        },
+        "4": {
+            "clue": "What I think about you.",
+            "answer": "DREAM",
+            "row": 4,
+            "col": 4
+        },
+        "5": {
+            "clue": "What impressed me the first time I met you",
+            "answer": "HEIGHT",
+            "row": 5,
+            "col": 4
+        }
+    },
+    "down": {
+        "1": {
+            "clue": "A question!",
+            "answer": "MRRME?",
+            "row": 1,
+            "col": 5
+        }
+    }
+}
