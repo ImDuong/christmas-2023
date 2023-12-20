@@ -74,14 +74,14 @@ function addHint() {
     // Iterate over the 'across' words
     for (var key in data.across) {
         var word = data.across[key];
-        var id = "txt_" + word.row + "_" + (word.col - 2);
+        var id = "txt_" + word.row + "_" + (word.col - 1);
         document.getElementById(id).placeholder = key;
     }
 
     // Iterate over the 'down' words
     for (var key in data.down) {
         var word = data.down[key];
-        var id = "txt_" + word.row + "_" + (word.col - 2);
+        var id = "txt_" + word.row + "_" + (word.col - 1);
         document.getElementById(id).placeholder = key;
     }
 }
