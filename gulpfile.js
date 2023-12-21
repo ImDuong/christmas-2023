@@ -31,6 +31,7 @@ const pugPattern = "./src/**/*.pug";
 const cleanupPugPattern = `./${buildFolder}/**/*.pug`;
 const lessPattern = "./src/**/*.less";
 const jsPattern = "./src/**/*.js";
+const cssPattern = "./src/**/*.css";
 
 gulp.task("compile-less", function () {
   return gulp
@@ -84,11 +85,26 @@ gulp.task('copy-js', function () {
     .pipe(gulp.dest(buildFolder));
 });
 
+// Task to copy CSS files
+gulp.task('copy-css', function () {
+  return gulp
+    .src(cssPattern)
+    .pipe(
+      fileInclude({
+        prefix: "@@",
+        basepath: "@file",
+      })
+    )
+    .pipe(gulp.dest(buildFolder));
+});
+
+
 // Task to watch for changes and trigger the appropriate compilation task
 gulp.task("watch", function () {
   gulp.watch(lessPattern, gulp.series("compile-less"));
   gulp.watch(pugPattern, gulp.series("compile-pug"));
   gulp.watch(jsPattern, gulp.series("copy-js"));
+  gulp.watch(cssPattern, gulp.series("copy-css"));
 });
 
 gulp.task('serve', function() {
@@ -112,6 +128,6 @@ gulp.task('serve', function() {
   console.log(`Enable live-reload for ${buildFolderFullPath} and ${assetsFolderFullPath}`);
 });
 
-gulp.task("default", gulp.parallel("compile-less", "compile-pug", "copy-js"));
+gulp.task("default", gulp.parallel("compile-less", "compile-pug", "copy-js", "copy-css"));
 
 gulp.task("dev", gulp.series("default", gulp.parallel("watch", "serve")));

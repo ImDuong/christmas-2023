@@ -1,0 +1,20 @@
+html
+  head
+    link(rel="stylesheet", type="text/css", href="@@webRoot/components/mail/mail.css")
+    script(defer, src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js")
+    script(defer, src="@@webRoot/components/mail/mail.js")
+
+  body
+    .letter-image(id='letter-wrapper')
+      .animated-mail(id='mail')
+        .back-fold
+        .letter(id='letter-item')
+          .letter-border
+          .letter-title
+            p I want to play a game with you 😈
+          .letter-stamp
+            .letter-stamp-inner
+        .top-fold
+        .body
+        .left-fold
+      .shadow
