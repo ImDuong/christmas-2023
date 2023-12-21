@@ -34,6 +34,7 @@ Draggable.create(".dial", {
                 angle < (comboArr[i] + numOffset) * tickAngle) {
                 // make numbers green when found
                 $(".num" + (i + 1)).addClass("found");
+                $(".num" + (i + 1)).html(combo[i]);
                 // on unlock
                 if (i == comboArr.length - 1) {
                   $(".shackle").addClass("unlocked");
@@ -61,10 +62,7 @@ Draggable.create(".dial", {
       };
   // show combination to user
   for (let i = 0; i < combo.length; ++i) {
-    if (combo[i] >= 40) {
-      combo[i] = 0;
-    }
-    $(".num" + (i + 1)).html(combo[i]);
+    $(".num" + (i + 1)).html(0);
   }
   // dial interaction (mouse)
   $(".dial").on("click",function(){
