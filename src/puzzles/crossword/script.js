@@ -1,6 +1,7 @@
 // Global variable to store the data
 var data;
 const dataPath = '@@webRoot/../assets/puzzle_configs/crossword_data.json';
+const mainRoomPath = "@@webRoot/rooms/main-room/index.html";
 
 document.addEventListener("DOMContentLoaded", async function () {
     fetch(dataPath)
@@ -9,8 +10,6 @@ document.addEventListener("DOMContentLoaded", async function () {
         // Store the data in the global variable
         data = jsonData;
 
-        // Now you can use the data
-        console.log(data);
 
         // Call initializeScreen function after data is fetched
         initializeScreen();
@@ -98,7 +97,6 @@ function preparePuzzleArray() {
     var maxRow = 0;
     var maxCol = 0;
     var minCol = Infinity;
-    console.log(data);
     for (var key in data.across) {
         var word = data.across[key];
         maxRow = Math.max(maxRow, word.row);
@@ -146,19 +144,28 @@ function clearAllClicked(){
 }
 //Check button
 function checkClicked(){
+    var matchCount = 0;
+    var totalWords = 0;
+
     for ( var i = 0; i < puzzleArrayData.length ; i++ ) {
         var rowData = puzzleArrayData[i];
         for(var j = 0 ; j < rowData.length ; j++){
             if(rowData[j] != 0){
+                totalWords++;
                 var selectedInputTextElement = document.getElementById('txt' + '_' + i + '_' + j);
-                if(selectedInputTextElement.value != puzzleArrayData[i][j]){
+                if(selectedInputTextElement.value.trim().toLowerCase() == puzzleArrayData[i][j].toLowerCase()){
+                    selectedInputTextElement.style.backgroundColor = 'green';
+                    matchCount++;
+                } else {
                     selectedInputTextElement.style.backgroundColor = 'red';
-                    
-                }else{
-                    selectedInputTextElement.style.backgroundColor = 'white';
                 }
             }
         }
+    }
+
+    // If all words match, redirect to another page
+    if (matchCount == totalWords) {
+        window.location.href = mainRoomPath;
     }
 }
 //Clue Button
@@ -197,7 +204,7 @@ function clueClicked(){
     }
 }
 
-//Solve Button
+// Solve Button
 function solveClicked(){
     if (currentTextInput != null){
         var temp1 = currentTextInput;
