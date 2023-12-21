@@ -17,22 +17,24 @@ import { navigate } from "../../utils/utils.js";
  * loadNextRoom("navigation/main-room-left-door.json", "left-door-wrapper", "../../rooms/room-happiness/index.html");
  */
 export function loadNextRoom(storyPath, doorWrapperDOMElementID, roomURI) {
-  if (storyPath.length == 0) {
-    navigate(roomURI);
-  }
-
   var storyLines = [];
   var isRoomEnterable = false;
-  fetchStoryLines(storyPath)
-    .then((fetchedSl) => {
-      storyLines = fetchedSl;
-    })
-    .catch((e) => {
-      console.error(`Fetch story lines from ${storyPath} failed:`, e);
-    });
+  if (storyPath.length > 0) {
+    fetchStoryLines(storyPath)
+      .then((fetchedSl) => {
+        storyLines = fetchedSl;
+      })
+      .catch((e) => {
+        console.error(`Fetch story lines from ${storyPath} failed:`, e);
+      });
+  }
 
   var doorWrapper = document.getElementById(doorWrapperDOMElementID);
   doorWrapper.addEventListener("click", function () {
+    if (storyLines.length == 0) {
+      navigate(roomURI);
+      return;
+    }
     if (!isRoomEnterable) {
       viewStoryLines(storyLines);
       if (roomURI.length > 0) {
@@ -42,5 +44,6 @@ export function loadNextRoom(storyPath, doorWrapperDOMElementID, roomURI) {
     }
 
     navigate(roomURI);
+    return;
   });
 }

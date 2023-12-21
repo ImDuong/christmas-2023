@@ -1,0 +1,38 @@
+body {
+  background-image: url("https://preview.free3d.com/img/2017/10/2704896669564012176/p0rx98i3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+#leftBox {
+  float: left;
+}
+#rightBox {
+  float: left;
+  clear: left;
+}
+.butt {
+  height: 50px;
+  width: 107px;
+}
+#puzzle {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+.inputBox {
+  width: 80px;
+  height: 80px;
+  border: 1px solid black;
+  text-align: center;
+}
+#hintsTable {
+  width: 480px;
+  float: left;
+  clear: left;
+  color: white;
+}

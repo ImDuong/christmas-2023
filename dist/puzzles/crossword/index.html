@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cross word Puzzle</title>
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="../../../assets/imgs/favicon.png" type="image/png">
+        <title>Xmas Cung Hỷ</title>
+    </head>
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body><audio autoplay loop>
+        <source src="../../../assets/sounds/horror_sound2.mp3" type="audio/mpeg">
+    </audio>
+    <div id="leftBox">
+        <table id="puzzle"></table>
+    </div>
+    <div id="rightBox">
+        <table>
+            <tr>
+                <td><input class="butt" type="submit" value="Clear All" onclick="clearAllClicked()"></td>
+                <td><input class="butt" type="submit" value="Check" onclick="checkClicked()"></td>
+                <td><input class="butt" type="submit" value="Solve" onclick="solveClicked()"></td>
+                <td><input class="butt" type="submit" value="Clue" onclick="clueClicked()" id="clueButton"></td>
+            </tr>
+        </table>
+    </div>
+    <table id="hintsTable"></table>
+</body>
+
+</html>
