@@ -8,22 +8,23 @@
 }
 
 #castle {
-	position: relative;
-	width: 100vw;
-	height: 100vh;
+	position: absolute;
+	width: 10vw;
+	height: 70vh;
 	/* background: radial-gradient(#293c4d, #001920); */
 	overflow: hidden;
+
 	
 	#table {
 		position: absolute;
 		left: calc(50% - 200px);
-		top: calc(50% - 50px);
+		top: calc(50% - 210px);
 		width: 400px;
 		height: 400px;
 		background: radial-gradient(#a3727e, #af7279, #a16674);
 		border-radius: 100%;
 		border-bottom: 80px solid #623c53;
-		transform: scaleY(0.225);
+		transform: scaleX(0.3) scaleY(0.065);
 	}
 	
 	.shade-wrap {
@@ -32,6 +33,7 @@
 		top: calc(52% - 250px);
 		width: 200px;
 		height: 400px;
+		transform: scale(0.3);
 		
 		#shade-main {
 			position: absolute;
@@ -119,7 +121,8 @@
 		
 		#flower-wrap {
 			position: relative;
-			top: -50px;
+			top: -150px;
+			visibility: hidden;
 			
 			#stem {
 				position: absolute;
@@ -290,6 +293,7 @@
 }
 
 .dustDef {
+	visibility: visible;
 	position: absolute;
 	background-color: white;
 	border-radius: 100%;

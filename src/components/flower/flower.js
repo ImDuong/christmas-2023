@@ -71,3 +71,30 @@
       ].forEach((o) => CreateMagicDust(...o));
   
   })();
+
+var flowerWrapper = document.createElement("div");
+var dustWrapper = document.createElement("div");
+
+function showFlowerAndDust() {
+    // Show the flower
+    
+    if (flowerWrapper) {
+        flowerWrapper.style.visibility = "visible";
+    }
+
+    // Show the dust
+    if (dustWrapper) {
+        dustWrapper.style.visibility = "visible";
+    }
+    
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    table = document.getElementById("table");
+    flowerWrapper = document.getElementById("flower-wrap");
+    // dustWrapper = document.getElementById("dustDef");
+
+    table.addEventListener("click", () => {
+        showFlowerAndDust();
+    });
+});
