@@ -28,4 +28,4 @@ jobs:
         yarn
         yarn run build
       env:
-        RUN_MODE: ${{ vars.RUN_MODE }}
+        RUN_MODE: ${{ env.RUN_MODE }}

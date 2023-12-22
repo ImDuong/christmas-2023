@@ -8,3 +8,5 @@ package-lock.json
 /build
 /dist
 index.html
+
+# .vscode

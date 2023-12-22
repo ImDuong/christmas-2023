@@ -32,7 +32,7 @@ jobs:
         cp -r assets build
         cp index.html build
       env:
-        RUN_MODE: ${{ vars.RUN_MODE }}
+        RUN_MODE: ${{ env.RUN_MODE }}
         
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3.9.3
