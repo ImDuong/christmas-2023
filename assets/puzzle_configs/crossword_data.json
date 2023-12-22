@@ -4,39 +4,39 @@
             "clue": "What make our relationship great.",
             "answer": "HARMONY",
             "row": 1,
-            "col": 1
+            "col": 2
         },
         "2": {
-            "clue": "",
-            "answer": "CHARMED",
+            "clue": "The first hotel we went into",
+            "answer": "MERITEL",
             "row": 2,
-            "col": 1
+            "col": 3
         },
         "3": {
             "clue": "A type of vegetable you hate.",
             "answer": "SPROUTS",
             "row": 3,
-            "col": 2
+            "col": 3
         },
         "4": {
-            "clue": "What I think about you.",
+            "clue": "What I think about our relationship.",
             "answer": "DREAM",
             "row": 4,
-            "col": 3
+            "col": 1
         },
         "5": {
             "clue": "What impressed me the first time I met you",
             "answer": "HEIGHT",
             "row": 5,
-            "col": 3
+            "col": 4
         }
     },
     "down": {
         "1": {
-            "clue": "A question!",
+            "clue": "An important question!!!",
             "answer": "MRRME",
             "row": 1,
-            "col": 4
+            "col": 5
         }
     }
 }
