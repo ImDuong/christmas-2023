@@ -1,4 +1,4 @@
-const lastRoomPath = "@@webRoot/rooms/main-room/index.html"
+const lastRoomPath = "https://namikemen.github.io/birthday-2023/"
 const passwordPath = "@@webRoot/../assets/puzzle_configs/password.json"
 // const fs = require('fs');
 
