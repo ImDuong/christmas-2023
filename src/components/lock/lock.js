@@ -9,7 +9,7 @@ Draggable.create(".dial", {
     throwProps:true
   });
   // values 40 or above will be set to 0
-    const combo = [1, 0, 25],
+    const combo = [1, 25, 0],
         findCombo = function(comboArr){
           let dial = $(".dial"),
               dialTrans = dial.css("transform"),
@@ -34,6 +34,7 @@ Draggable.create(".dial", {
                 angle < (comboArr[i] + numOffset) * tickAngle) {
                 // make numbers green when found
                 $(".num" + (i + 1)).addClass("found");
+                $(".num" + (i + 1)).html(combo[i]);
                 // on unlock
                 if (i == comboArr.length - 1) {
                   $(".shackle").addClass("unlocked");
@@ -61,10 +62,7 @@ Draggable.create(".dial", {
       };
   // show combination to user
   for (let i = 0; i < combo.length; ++i) {
-    if (combo[i] >= 40) {
-      combo[i] = 0;
-    }
-    $(".num" + (i + 1)).html(combo[i]);
+    $(".num" + (i + 1)).html(0);
   }
   // dial interaction (mouse)
   $(".dial").on("click",function(){
@@ -98,6 +96,6 @@ Draggable.create(".dial", {
     table.addEventListener("click", () => {
         setTimeout(async function () {
             showLock();
-          }, 10000);
+          }, 5000);
     });
   });
