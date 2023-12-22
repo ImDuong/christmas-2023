@@ -42,3 +42,5 @@
 
 # References
 - https://codepen.io/Craaftx/pen/JwEqwQ
+- https://codepen.io/VIRU/pen/DGXOjE
+- https://wallpaperwaifu.com/sci-fi-fantasy/christmas-santa-claus-reindeer-live-wallpaper/

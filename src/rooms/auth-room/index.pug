@@ -1,0 +1,15 @@
+html(lang="en")
+  head
+    link(rel='stylesheet', type="text/css", href='style.css')
+    link(rel='stylesheet', type="text/css", href='snowbutton.css')
+    include @@webRoot/components/header/index.pug
+  body
+    div.fullscreen-bg
+        video.fullscreen-bg__video(loop muted autoplay)
+            source(src="@@webRoot/../assets/videos/christmas-santa-claus-reindeer.mp4", type="video/mp4")
+            | Your browser does not support the video tag.
+    div
+      h1.santa-heading How can I call you?
+      input.santa-input(type="text", placeholder="Only the worthy one can join the ride")
+      div.centerer
+        a.button(href="#") Join the Ride

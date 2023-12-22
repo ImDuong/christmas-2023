@@ -1,0 +1,71 @@
+body {
+  background-color: #f0f0f0;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+.santa-heading {
+  text-align: center;
+  color: #d9534f; /* Bootstrap Danger Red */
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.santa-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #d9534f;
+  border-radius: 5px;
+  width: 333px;
+  margin-bottom: 20px;
+
+  &::placeholder {
+    color: #d9534f;
+    font-style: italic;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #5bc0de; /* Bootstrap Info Blue */
+  }
+}
+
+.santa-button {
+  background-color: #d9534f;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #c9302c; /* Darker shade of red for hover effect */
+  }
+}
+
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+}
