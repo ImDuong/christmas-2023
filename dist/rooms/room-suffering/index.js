@@ -15,9 +15,9 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   setTimeout(async function () {
     showLetter();
-  }, 13000); // 10000 milliseconds = 10 seconds
+  }, 10000); // 10000 milliseconds = 10 seconds
 
   loadNextRoom("", "letter-item", puzzlePath);
 
-  loadNextRoom(leftRoomStoryPath, "left-door-wrapper", mainRoomPath);
+  loadNextRoom(leftRoomStoryPath, "left-door-wrapper", "");
 });

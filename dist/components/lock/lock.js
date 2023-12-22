@@ -1,4 +1,4 @@
-const lastRoomPath = "../../rooms/main-room/index.html"
+const lastRoomPath = "https://namikemen.github.io/birthday-2023/"
 const passwordPath = "../../../assets/puzzle_configs/password.json"
 // const fs = require('fs');
 
@@ -9,7 +9,7 @@ Draggable.create(".dial", {
     throwProps:true
   });
   // values 40 or above will be set to 0
-    const combo = [1, 0, 25],
+    const combo = [1, 25, 0],
         findCombo = function(comboArr){
           let dial = $(".dial"),
               dialTrans = dial.css("transform"),
@@ -96,6 +96,6 @@ Draggable.create(".dial", {
     table.addEventListener("click", () => {
         setTimeout(async function () {
             showLock();
-          }, 10000);
+          }, 5000);
     });
   });
