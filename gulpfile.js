@@ -23,7 +23,7 @@ if (runMode == "production") {
 }
 const buildFolderFullPath = path.join(process.cwd(), buildFolder)
 const assetsFolderFullPath = path.join(process.cwd(), "assets")
-let redirectedRoomPath = path.join(buildFolder, "rooms/main-room/index.html")
+let redirectedRoomPath = path.join(buildFolder, "rooms/auth-room/index.html")
 // support Windows path
 redirectedRoomPath = redirectedRoomPath.replaceAll("\\", "\\\\")
 
