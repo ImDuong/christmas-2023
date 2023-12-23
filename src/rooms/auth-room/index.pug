@@ -3,6 +3,9 @@ html(lang="en")
     link(rel='stylesheet', type="text/css", href='style.css')
     link(rel='stylesheet', type="text/css", href='snowbutton.css')
     include @@webRoot/components/header/index.pug
+    include @@webRoot/components/popup/index.pug
+    script(defer, src="index.js")
+    script(defer, src="helpers.js")
   body
     div.fullscreen-bg
         video.fullscreen-bg__video(loop muted autoplay)
@@ -10,6 +13,8 @@ html(lang="en")
             | Your browser does not support the video tag.
     div
       h1.santa-heading How can I call you?
-      input.santa-input(type="text", placeholder="Only the worthy one can join the ride")
+      input.santa-input(
+        id="magic-input", type="text", autofocus, placeholder="Only the worthy one can join the ride",  
+        onkeydown='handleEnterKey(event)')
       div.centerer
-        a.button(href="#") Join the Ride
+        a.button(onclick="login()") Join the Ride
